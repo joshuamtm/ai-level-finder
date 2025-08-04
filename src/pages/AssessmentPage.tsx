@@ -41,6 +41,9 @@ const AssessmentPage: React.FC = () => {
         setSelectedOption(previousResponse.selectedOptions[0]);
         setResponses(responses.slice(0, -1));
       }
+    } else {
+      // Navigate back to homepage if on first question
+      navigate('/');
     }
   };
 
@@ -106,14 +109,9 @@ const AssessmentPage: React.FC = () => {
             <div className="mt-8 flex justify-between">
               <button
                 onClick={handleBack}
-                disabled={currentQuestionIndex === 0}
-                className={`px-6 py-2 rounded-lg font-medium ${
-                  currentQuestionIndex === 0
-                    ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
-                    : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                }`}
+                className="px-6 py-2 rounded-lg font-medium bg-gray-200 text-gray-700 hover:bg-gray-300"
               >
-                Back
+                {currentQuestionIndex === 0 ? 'Back to Intro' : 'Back'}
               </button>
               <button
                 onClick={handleNext}

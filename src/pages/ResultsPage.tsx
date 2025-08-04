@@ -5,6 +5,7 @@ import { levels } from '../data/levels';
 import { AssessmentResult, UserResponse } from '../types';
 import LevelGauge from '../components/LevelGauge';
 import BenefitsComparison from '../components/BenefitsComparison';
+import WhatIfSimulator from '../components/WhatIfSimulator';
 import ActionPlan from '../components/ActionPlan';
 import ExportButtons from '../components/ExportButtons';
 
@@ -88,6 +89,11 @@ const ResultsPage: React.FC = () => {
           nextLevelBenefits={result.nextLevelBenefits}
           nextNextLevelBenefits={result.nextNextLevelBenefits}
         />
+
+        {/* What-If Simulator */}
+        <div className="mb-8">
+          <WhatIfSimulator result={result} />
+        </div>
 
         {/* Action Plan */}
         <ActionPlan recommendations={result.recommendations} />
